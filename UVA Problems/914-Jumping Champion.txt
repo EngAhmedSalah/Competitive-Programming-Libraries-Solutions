@@ -1,0 +1,57 @@
+#include "bits/stdc++.h"
+using namespace std;
+#define MAX_V  1e9
+#define MIN_V -1e9
+#define all(c) c.begin() , c.end()
+typedef long long lld;
+inline int SD(){int i ;scanf("%d", &i);return i;}
+inline lld SLL(){lld i;scanf("%lld", &i);return i;}
+inline char SC(){char i;scanf(" %c", &i);return i;}
+const int AKA = 1e7+7;
+vector<int>prime;
+int vis[AKA];
+void sieve()
+{
+    for(int i = 2 ; i < AKA ; ++i)
+        if(!vis[i])
+        {
+            prime.push_back(i);
+            for(lld j = i + i*1LL ; j < AKA ; j += i)
+                vis[j] = 1;
+        }
+}
+int solve(int x , int y)
+{
+    int fr[1000] = {0};
+    int l = lower_bound(all(prime), x) - prime.begin();
+    int r = lower_bound(all(prime), y) - prime.begin();
+    r -=(prime[r] == y) ? 0 : 1;
+    if(l > r)
+       return 0;
+    else
+    {
+        vector<pair<int , int> >ans;
+        int mx = 0, idx = 0, sz = 0;
+        for(int i = l+1 ; i <= r ; ++i)
+            ++fr[prime[i] - prime[i-1]], sz = max(sz, abs(prime[i] - prime[i-1]));
+        for(int i = 0 ; i <= sz ; ++i)
+            if(fr[i])
+        ans.push_back(make_pair(fr[i], i));
+        if(ans.empty())
+            return 0;
+        sort(all(ans));
+        if((ans[ans.size()-1].first != ans[ans.size()-2].first))
+            return ans[ans.size()-1].second;
+        return 0;
+    }
+}
+int main()
+{
+        sieve();
+        int t = SD();
+        while(t--)
+        {
+            int x = SD() , y = SD() , fa = solve(x , y);
+            (fa == 0) ? puts("No jumping champion") : printf("The jumping champion is %d\n" , fa);
+        }
+}
