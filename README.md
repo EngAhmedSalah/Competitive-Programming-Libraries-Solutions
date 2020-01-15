@@ -1,4 +1,7 @@
-# Competitive-Programming
-all libraries and sources for Competitive Programming that I have write in my way in Programming Competitions
-this repository include Solutions for +100 problems from UVa online judge and Codeforces Online judge.
-it is also include Coding interview problems from <a href = "https://leetcode.com">
+Competitive-Programming Labraries and Problems Solutions
+========================================================
+all 'libraries and source codes for Competitive Programming' that I have writen in my journey at Programming Competitions.
+this repository including :
+*libraries for most of famous algorithms '(Graphs , trees , Dynammic programming , binary search ...etc)' and some datastructures (stack , queueu , priority queue , segment trees , fenwik trees , AVL tree , Balanced binary tree ...etc)' . 
+*Solutions for +100 problems from UVa online judge
+*Solutions for +600 Codeforces Online judge.
